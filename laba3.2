@@ -1,0 +1,61 @@
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+using namespace std;
+
+class node 
+{
+public:
+int a; 
+node* pred; 
+};
+
+class stack 
+{
+private:
+node* verhniy;
+public:
+stack()
+{
+verhniy = NULL;
+}
+void push(int n);
+void pop();
+};
+
+void stack::push(int n)
+{
+node* temp = new node;
+temp->a = n;
+temp->pred = verhniy;
+verhniy = temp;
+}
+
+void stack::pop()
+{
+node* temp = new node;
+cout<<verhniy->a;
+temp = verhniy->pred;
+delete verhniy;
+verhniy = temp;
+}
+
+void main()
+{
+int end=0;
+char ch;
+int n;
+stack st;
+while (end != 1)
+{
+cout<<"ENTER n:";
+cin>>n;
+st.push(n);
+cout<<"Izvlech posledniy element? [Y/N]";
+cin>>ch;
+if (ch=='y' || ch=='Y') st.pop(); 
+cout<<"Bce? [0/1]";
+cin>>end;
+
+}
+}
