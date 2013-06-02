@@ -1,0 +1,29 @@
+// быстрая_сортировка.cpp: главный файл проекта.
+
+#include "stdafx.h"
+
+using namespace System;
+#include <iostream>
+using namespace std;
+
+int sort( int *massiv, int n)   /// massiv-исходный массив, n-количество элементов
+{ int i,j;
+  for (i=n-1;i>0;i++)
+    { for (j=0; j<i;j++)
+      if (massiv[j]> massiv[j+1])///замена элементов a-хранени временного результата
+		  { int a= massiv[j];
+            massiv[j]=massiv[j+1];
+			massiv[j+1]=a;
+          };
+    };
+  return *massiv;
+}
+
+int main(array<System::String ^> ^args)
+{
+	int a[10]={3,1,2,6,4,8,11,14,100,3};
+	a=sort(a,10);
+	for (int i=0;i=9;i++)
+	     cout>>a[i];
+    return 0;
+}
